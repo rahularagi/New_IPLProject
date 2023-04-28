@@ -1,3 +1,5 @@
+package com.code;
+
 public class Match {
     private int id;
     private int season;
