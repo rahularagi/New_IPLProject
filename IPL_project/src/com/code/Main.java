@@ -5,8 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] args) {
         List<Match> matches=matchReader();
@@ -16,7 +15,8 @@ public class Main {
         findNumberOfMatchesWinByEachTeam(matches);
         findExtraRunsConcededPerTeamIn2016(matches,deliveries);
         findTopEconomicalBowlerForTheYear2015(matches,deliveries);
-        findtotalRunsOfEachPlayerInIPL(deliveries);
+       findTotalRunsOfEachPlayerInIPL(deliveries);
+       findStrikeRateBatsmanIn2016(matches,deliveries);
 
     }
 
@@ -33,30 +33,30 @@ public class Main {
                 String [] data=line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                 Match m=new Match();
 
-                m.setid(Integer.parseInt(data[0]));
+                m.setId(Integer.parseInt(data[0]));
 
-                m.setseason(Integer.parseInt(data[1]));
+                m.setSeason(Integer.parseInt(data[1]));
 
-                m.setcity(data[2]);
+                m.setCity(data[2]);
 
-                m.setdate(data[3]);
+                m.setDate(data[3]);
 
-                m.setteam1(data[4]);
-                m.setteam2(data[5]);
+                m.setTeam1(data[4]);
+                m.setTeam2(data[5]);
 
-                m.settoss_winner(data[6]);
-                m.settoss_decision(data[7]);
-                m.setresult(data[8]);
-                m.setdl_applied(Integer.parseInt(data[9]));
-                m.setwinnwr(data[10]);
+                m.setTossWinner(data[6]);
+                m.setTossDecision(data[7]);
+                m.setResult(data[8]);
+                m.setDlApplied(Integer.parseInt(data[9]));
+                m.setWinner(data[10]);
 
-                m.setwin_by_runs(Integer.parseInt(data[11]));
-                m.setwin_by_wickets(Integer.parseInt(data[12]));
-                m.setplayer_of_match(data[13]);
-                m.setvenue(data[14]);
-                m.setumpire1(data[15]);
-                m.setumpire2(data[16]);
-                m.setumpire3(data[17]);
+                m.setWinByRuns(Integer.parseInt(data[11]));
+                m.setWinByWickets(Integer.parseInt(data[12]));
+                m.setPlayerOfMatch(data[13]);
+                m.setVenue(data[14]);
+                m.setUmpire1(data[15]);
+                m.setUmpire2(data[16]);
+                m.setUmpire3(data[17]);
 
                 matches.add(m);
 
@@ -91,46 +91,46 @@ public class Main {
 
                 Deliveries d=new Deliveries();
 
-                d.setmatch_id(Integer.parseInt(data[0]));
+                d.setMatchId(Integer.parseInt(data[0]));
 
-                d.setinning(Integer.parseInt(data[1]));
+                d.setInning(Integer.parseInt(data[1]));
 
-                d.setbatting_team(data[2]);
+                d.setBattingTeam(data[2]);
 
-                d.setbowling_team(data[3]);
+                d.setBowlingTeam(data[3]);
 
-                d.setover(Integer.parseInt(data[4]));
+                d.setOver(Integer.parseInt(data[4]));
 
-                d.setball(Integer.parseInt(data[5]));
+                d.setBall(Integer.parseInt(data[5]));
 
-                d.setbatsman(data[6]);
+                d.setBatsMan(data[6]);
 
-                d.setnon_striker(data[7]);
+                d.setNonStriker(data[7]);
 
-                d.setbowler(data[8]);
+                d.setBowler(data[8]);
 
-                d.setis_super_over(Integer.parseInt(data[9]));
+                d.setIsSuperOver(Integer.parseInt(data[9]));
 
-                d.setwide_runs(Integer.parseInt(data[10]));
+                d.setWideRuns(Integer.parseInt(data[10]));
 
-                d.setbye_runs(Integer.parseInt(data[11]));
+                d.setByeRuns(Integer.parseInt(data[11]));
 
-                d.setlegbye_runs(Integer.parseInt(data[12]));
-                d.setnoball_runs(Integer.parseInt(data[13]));
+                d.setLegByeRuns(Integer.parseInt(data[12]));
+                d.setNoBallRuns(Integer.parseInt(data[13]));
 
-                d.setpenalty_runs(Integer.parseInt(data[14]));
+                d.setPenaltyRuns(Integer.parseInt(data[14]));
 
-                d.setbatsman_runs(Integer.parseInt(data[15]));
+                d.setBatsmanRuns(Integer.parseInt(data[15]));
 
-                d.setextra_runs(Integer.parseInt(data[16]));
+                d.setExtraRuns(Integer.parseInt(data[16]));
 
-                d.settotal_runs(Integer.parseInt(data[17]));
+                d.setTotalRuns(Integer.parseInt(data[17]));
 
-                d.setplayer_dismissed(data[18]);
+                d.setPlayerDismissed(data[18]);
 
-                d.setdismissal_kind(data[19]);
+                d.setDisMissalKind(data[19]);
 
-                d.setfielder(data[20]);
+                d.setFielder(data[20]);
 
                 deliveries.add(d);
             }
@@ -153,11 +153,11 @@ public class Main {
         Map<Integer,Integer> yearAndTotalMatches=new HashMap<>();
 
         for(int i=0;i< matches.size();i++){
-            if(!yearAndTotalMatches.containsKey(matches.get(i).getseason())){
-                yearAndTotalMatches.put(matches.get(i).getseason(),1);
+            if(!yearAndTotalMatches.containsKey(matches.get(i).getSeason())){
+                yearAndTotalMatches.put(matches.get(i).getSeason(),1);
             }
             else{
-                yearAndTotalMatches.put(matches.get(i).getseason(),(yearAndTotalMatches.get(matches.get(i).getseason())+1));
+                yearAndTotalMatches.put(matches.get(i).getSeason(),(yearAndTotalMatches.get(matches.get(i).getSeason())+1));
             }
         }
         System.out.println("total number of years: " +yearAndTotalMatches.size());
@@ -173,11 +173,11 @@ public class Main {
         Map<String,Integer> teamWinCount=new HashMap();
 
         for(int i=0;i<matches.size();i++){
-            if(matches.get(i).getwinnwr()!="") {
-                if (!teamWinCount.containsKey(matches.get(i).getwinnwr())) {
-                    teamWinCount.put(matches.get(i).getwinnwr(), 1);
+            if(matches.get(i).getWinner()!="") {
+                if (!teamWinCount.containsKey(matches.get(i).getWinner())) {
+                    teamWinCount.put(matches.get(i).getWinner(), 1);
                 } else {
-                    teamWinCount.put(matches.get(i).getwinnwr(), (teamWinCount.get(matches.get(i).getwinnwr()) + 1));
+                    teamWinCount.put(matches.get(i).getWinner(), (teamWinCount.get(matches.get(i).getWinner()) + 1));
                 }
             }
         }
@@ -194,14 +194,14 @@ public class Main {
         Map<String,Integer> extraRunsPerTeam=new HashMap<>();
 
         for(int i=0;i< matches.size();i++){
-            if(matches.get(i).getseason()==2016){
+            if(matches.get(i).getSeason()==2016){
                 for(int j=0;j<deliveries.size();j++){
-                    if(matches.get(i).getid()==deliveries.get(j).getmatch_id()&&deliveries.get(j).getextra_runs()!=0){
-                        if(!extraRunsPerTeam.containsKey(deliveries.get(j).getbatting_team())){
-                            extraRunsPerTeam.put(deliveries.get(j).getbatting_team(),deliveries.get(j).getextra_runs());
+                    if(matches.get(i).getId()==deliveries.get(j).getMatchId()&&deliveries.get(j).getExtraRuns()!=0){
+                        if(!extraRunsPerTeam.containsKey(deliveries.get(j).getBattingTeam())){
+                            extraRunsPerTeam.put(deliveries.get(j).getBattingTeam(),deliveries.get(j).getExtraRuns());
                         }
                         else{
-                            extraRunsPerTeam.put(deliveries.get(j).getbatting_team(),(extraRunsPerTeam.get(deliveries.get(j).getbatting_team())+deliveries.get(j).getextra_runs()));
+                            extraRunsPerTeam.put(deliveries.get(j).getBattingTeam(),(extraRunsPerTeam.get(deliveries.get(j).getBattingTeam())+deliveries.get(j).getExtraRuns()));
                         }
                     }
                 }
@@ -219,52 +219,107 @@ public class Main {
         System.out.println("For the year of 2015 top economical bowler");
         Map<String,Integer> totalBallsThrownByBowler=new TreeMap<>();
         Map<String,Integer> totalRunsGivenByBowler=new TreeMap<>();
-        TreeMap<Float,String> ec=new TreeMap<>();
+        Map<String,Float> bowlersEconomy=new HashMap<>();
 
 
         for(int j=0;j<matches.size();j++) {
-            if(matches.get(j).getseason()==2015) {
+            if(matches.get(j).getSeason()==2015) {
 
                 for (int i = 0; i < deliveries.size(); i++) {
-                    if(matches.get(j).getid()==deliveries.get(i).getmatch_id()) {
-                        if (!totalBallsThrownByBowler.containsKey(deliveries.get(i).getbowler())) {
-                            totalBallsThrownByBowler.put(deliveries.get(i).getbowler(), 1);
-                            totalRunsGivenByBowler.put(deliveries.get(i).getbowler(), deliveries.get(i).gettotal_runs());
+                    if(matches.get(j).getId()==deliveries.get(i).getMatchId()) {
+                        if (!totalBallsThrownByBowler.containsKey(deliveries.get(i).getBowler())) {
+                            totalBallsThrownByBowler.put(deliveries.get(i).getBowler(), 1);
+                            totalRunsGivenByBowler.put(deliveries.get(i).getBowler(), deliveries.get(i).getTotalRuns());
                         } else {
-                            totalBallsThrownByBowler.put(deliveries.get(i).getbowler(), (totalBallsThrownByBowler.get(deliveries.get(i).getbowler()) + 1));
-                            totalRunsGivenByBowler.put(deliveries.get(i).getbowler(), (totalBallsThrownByBowler.get(deliveries.get(i).getbowler()) + deliveries.get(i).gettotal_runs()));
+                            totalBallsThrownByBowler.put(deliveries.get(i).getBowler(), (totalBallsThrownByBowler.get(deliveries.get(i).getBowler()) + 1));
+                            totalRunsGivenByBowler.put(deliveries.get(i).getBowler(), (totalBallsThrownByBowler.get(deliveries.get(i).getBowler()) + deliveries.get(i).getTotalRuns()));
                         }
-                        float over = totalBallsThrownByBowler.get(deliveries.get(i).getbowler()) / 6f;
-                        float runs = totalRunsGivenByBowler.get(deliveries.get(i).getbowler());
-                        float ecnomic = runs / over;
-                        if(ecnomic!=0) {
-                            ec.put(ecnomic, deliveries.get(i).getbowler());
+                        float over = totalBallsThrownByBowler.get(deliveries.get(i).getBowler()) / 6f;
+                        float runs = totalRunsGivenByBowler.get(deliveries.get(i).getBowler());
+                        float economy = runs / over;
+                        if(economy!=0) {
+                            bowlersEconomy.put(deliveries.get(i).getBowler(),economy);
                         }
                     }
                 }
             }
         }
 
-        System.out.println("Top economical bowler for the year 2015: "+ec.firstEntry());
+        TreeMap<Float,String> sortedBowlersEconomy=new TreeMap<>();
+        for(Map.Entry m : bowlersEconomy.entrySet()){
+
+            sortedBowlersEconomy.put((Float)m.getValue(),(String)m.getKey());
+        }
+
+
+        System.out.println("Top economical bowler for the year 2015: "+sortedBowlersEconomy.get(sortedBowlersEconomy.firstKey())+" = "+sortedBowlersEconomy.firstKey());
         System.out.println();
     }
 
-    private static void findtotalRunsOfEachPlayerInIPL(List<Deliveries> deliveries) {
+    private static void findTotalRunsOfEachPlayerInIPL(List<Deliveries> deliveries) {
         System.out.println("Total runs of each player in ipl");
         Map<String,Integer> playerNameAndRuns=new HashMap<>();
 
         for(int i=0;i<deliveries.size();i++){
-            if(!playerNameAndRuns.containsKey(deliveries.get(i).getbatsman())){
-                playerNameAndRuns.put(deliveries.get(i).getbatsman(),deliveries.get(i).getbatsman_runs());
+            if(!playerNameAndRuns.containsKey(deliveries.get(i).getBatsMan())){
+                playerNameAndRuns.put(deliveries.get(i).getBatsMan(),deliveries.get(i).getBatsManRuns());
             }
             else{
-                playerNameAndRuns.put(deliveries.get(i).getbatsman(),( playerNameAndRuns.get(deliveries.get(i).getbatsman())+deliveries.get(i).getbatsman_runs()));
+                playerNameAndRuns.put(deliveries.get(i).getBatsMan(),( playerNameAndRuns.get(deliveries.get(i).getBatsMan())+deliveries.get(i).getBatsManRuns()));
             }
         }
 
         System.out.println("total number of players: " +playerNameAndRuns.size());
         for(Map.Entry m : playerNameAndRuns.entrySet()){
             System.out.println("Player_name: "+m.getKey()+",Total runs: "+m.getValue());
+        }
+    }
+
+
+
+    private static void findStrikeRateBatsmanIn2016(List<Match> matches, List<Deliveries> deliveries) {
+        System.out.println("Strike rate of each batsman");
+        Map<String,Integer> totalBallsPlayedByBatsman=new TreeMap<>();
+        Map<String,Integer> totalRunsOfBatsman=new TreeMap<>();
+        Map<String,Float> stikeRates=new HashMap<>();
+
+
+        for(int j=0;j<matches.size();j++) {
+            if(matches.get(j).getSeason()==2016) {
+
+                for (int i = 0; i < deliveries.size(); i++) {
+                    if(matches.get(j).getId()==deliveries.get(i).getMatchId()) {
+                        if (!totalBallsPlayedByBatsman.containsKey(deliveries.get(i).getBatsMan())) {
+                            totalBallsPlayedByBatsman.put(deliveries.get(i).getBatsMan(), 1);
+                            totalRunsOfBatsman.put(deliveries.get(i).getBatsMan(), deliveries.get(i).getBatsManRuns());
+                        } else {
+                            totalBallsPlayedByBatsman.put(deliveries.get(i).getBatsMan(), (totalBallsPlayedByBatsman.get(deliveries.get(i).getBatsMan()) + 1));
+                            totalRunsOfBatsman.put(deliveries.get(i).getBatsMan(), (totalRunsOfBatsman.get(deliveries.get(i).getBatsMan()) + deliveries.get(i).getBatsManRuns()));
+                        }
+                        float balls = totalBallsPlayedByBatsman.get(deliveries.get(i).getBatsMan()) ;
+                        float runs = totalRunsOfBatsman.get(deliveries.get(i).getBatsMan());
+                        float strikeRate = (runs / balls)*100;
+                        if(strikeRate!=0) {
+                            stikeRates.put(deliveries.get(i).getBatsMan(),strikeRate);
+                        }
+                    }
+                }
+            }
+        }
+
+        TreeMap<Float,String> sortedStrikeRates=new TreeMap<>();
+
+       for(Map.Entry m : stikeRates.entrySet()){
+            System.out.println("Player name: "+m.getKey()+" Strike rate: "+m.getValue());
+           sortedStrikeRates.put((Float)m.getValue(),(String)m.getKey());
+        }
+        System.out.println();
+        System.out.println("Top 5 strike rates");
+        int n=0;
+        while(n<5){
+            System.out.println("Player Name: "+sortedStrikeRates.get(sortedStrikeRates.lastKey())+" Strike rate: "+sortedStrikeRates.lastKey());
+            sortedStrikeRates.remove(sortedStrikeRates.lastKey());
+            n++;
         }
     }
 

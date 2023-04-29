@@ -23,165 +23,165 @@ public class Deliveries {
     private String dismissal_kind;
     private String fielder;
 
-    public void setmatch_id(int x){
+    public void setMatchId(int x){
         this.match_id=x;
     }
-    public void setinning(int x){
+    public void setInning(int x){
         this.inning=x;
     }
 
-    public void setbatting_team(String s){
+    public void setBattingTeam(String s){
         this.batting_team=s;
     }
 
-    public void setbowling_team(String s){
+    public void setBowlingTeam(String s){
         this.bowling_team=s;
     }
-    public void setover(int x){
+    public void setOver(int x){
         this.over=x;
     }
 
-    public void setball(int x){
+    public void setBall(int x){
         this.ball=x;
     }
 
-    public void setbatsman(String s){
+    public void setBatsMan(String s){
         this.batsman=s;
     }
 
-    public void setnon_striker(String s){
+    public void setNonStriker(String s){
         this.non_striker=s;
     }
 
-    public void setbowler(String s){
+    public void setBowler(String s){
         this.bowler=s;
     }
 
-    public void setis_super_over(int x){
+    public void setIsSuperOver(int x){
         this.is_super_over=x;
     }
 
-    public void setwide_runs(int x){
+    public void setWideRuns(int x){
         this.wide_runs=x;
     }
 
-    public void setbye_runs(int x){
+    public void setByeRuns(int x){
         this.bye_runs=x;
     }
 
-    public void setlegbye_runs(int x){
+    public void setLegByeRuns(int x){
         this.legbye_runs=x;
     }
-    public void setnoball_runs(int x){
+    public void setNoBallRuns(int x){
         this.noball_runs=x;
     }
 
-    public void setpenalty_runs(int x){
+    public void setPenaltyRuns(int x){
         this.penalty_runs=x;
     }
 
-    public void setbatsman_runs(int x){
+    public void setBatsmanRuns(int x){
         this.batsman_runs=x;
     }
 
-    public void setextra_runs(int x){
+    public void setExtraRuns(int x){
         this.extra_runs=x;
     }
 
-    public void settotal_runs(int x){
+    public void setTotalRuns(int x){
         this.total_runs=x;
     }
 
-    public void setplayer_dismissed(String s){
+    public void setPlayerDismissed(String s){
         this.player_dismissed=s;
     }
 
-    public void setdismissal_kind(String s){
+    public void setDisMissalKind(String s){
         this.dismissal_kind=s;
     }
 
-    public void setfielder(String s){
+    public void setFielder(String s){
         this.fielder=s;
     }
 
-    public int getmatch_id(){
+    public int getMatchId(){
         return this.match_id;
     }
-    public int getinning(){
+    public int getInning(){
         return this.inning;
     }
 
-    public String getbatting_team(){
+    public String getBattingTeam(){
         return this.batting_team;
     }
 
-    public String getbowling_team(){
+    public String getBowlingTeam(){
         return this.bowling_team;
     }
-    public int getover(){
+    public int getOver(){
         return this.over;
     }
 
-    public int getball(){
+    public int getBall(){
         return this.ball;
     }
 
-    public String getbatsman(){
+    public String getBatsMan(){
         return this.batsman;
     }
 
-    public String getnon_striker(){
+    public String getNonStriker(){
         return this.non_striker;
     }
 
-    public String getbowler(){
+    public String getBowler(){
         return this.bowler;
     }
 
-    public int getis_super_over(){
+    public int getIsSuperOver(){
         return this.is_super_over;
     }
 
-    public int getwide_runs(){
+    public int getWideRuns(){
         return this.wide_runs;
     }
 
-    public int getbye_runs(){
+    public int getByeRuns(){
         return this.bye_runs;
     }
 
-    public int getlegbye_runs(){
+    public int getLegByeRuns(){
         return this.legbye_runs;
     }
-    public int getnoball_runs(){
+    public int getNoballRuns(){
         return this.noball_runs;
     }
 
-    public int getpenalty_runs(){
+    public int getPenaltyRuns(){
         return this.penalty_runs;
     }
 
-    public int getbatsman_runs(){
+    public int getBatsManRuns(){
         return this.batsman_runs;
     }
 
-    public int getextra_runs(){
+    public int getExtraRuns(){
         return this.extra_runs;
     }
 
-    public int gettotal_runs(){
+    public int getTotalRuns(){
         return this.total_runs;
     }
 
-    public String getplayer_dismissed(){
+    public String getPlayerDismissed(){
         return this.player_dismissed;
     }
 
-    public String getdismissal_kind(){
+    public String getDisMissalKind(){
         return this.dismissal_kind;
     }
 
-    public String getfielder(){
+    public String getFielder(){
         return this.fielder;
     }
 

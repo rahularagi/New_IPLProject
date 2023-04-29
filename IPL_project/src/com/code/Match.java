@@ -20,133 +20,133 @@ public class Match {
     private String umpire2;
     private String umpire3;
 
-    public void setid(int x){this.id=x;}
+    public void setId(int x){this.id=x;}
 
-    public void setseason(int x){
+    public void setSeason(int x){
         this.season=x;
     }
-    public void setcity(String s){
+    public void setCity(String s){
         this.city=s;
     }
-    public void setdate(String s){
+    public void setDate(String s){
         this.date=s;
     }
 
-    public void setteam1(String s){
+    public void setTeam1(String s){
         this.team1=s;
     }
 
-    public void setteam2(String s){
+    public void setTeam2(String s){
         this.team2=s;
     }
 
-    public void settoss_winner(String s){
+    public void setTossWinner(String s){
         this.toss_winner=s;
     }
 
-    public void settoss_decision(String s){
+    public void setTossDecision(String s){
         this.toss_decision=s;
     }
 
-    public void setresult(String s){
+    public void setResult(String s){
         this.result=s;
     }
 
-    public void setdl_applied(int x){
+    public void setDlApplied(int x){
         this.dl_applied=x;
     }
 
-    public void setwinnwr(String s){
+    public void setWinner(String s){
         this.winner=s;
     }
-    public void setwin_by_runs(int x){
+    public void setWinByRuns(int x){
         this.win_by_runs=x;
     }
 
-    public void setwin_by_wickets(int x){
+    public void setWinByWickets(int x){
         this.win_by_wickets=x;
     }
 
-    public void setplayer_of_match(String s){
+    public void setPlayerOfMatch(String s){
         this.player_of_match=s;
     }
 
-    public void setvenue(String s){
+    public void setVenue(String s){
         this.venue=s;
     }
 
-    public void setumpire1(String s){
+    public void setUmpire1(String s){
         this.umpire1=s;
     }
-    public void setumpire2(String s){
+    public void setUmpire2(String s){
         this.umpire2=s;
     }
-    public void setumpire3(String s){
+    public void setUmpire3(String s){
         this.umpire3=s;
     }
 
-    public int getid(){
+    public int getId(){
         return this.id;
     }
 
-    public int getseason(){
+    public int getSeason(){
         return this.season;
     }
-    public String getcity(){
+    public String getCity(){
         return this.city;
     }
-    public String getdate(){
+    public String getDate(){
         return this.date;
     }
 
-    public String getteam1(){
+    public String getTeam1(){
         return this.team1;
     }
 
-    public String getteam2(){
+    public String getTeam2(){
         return this.team2;
     }
 
-    public String gettoss_winner(){
+    public String getTossWinner(){
         return this.toss_winner;
     }
 
-    public String gettoss_decision(){
+    public String getTossDecision(){
         return this.toss_decision;
     }
 
-    public String getresult(){
+    public String getResult(){
         return this.result;
     }
 
-    public int getdl_applied(){
+    public int getDlApplied(){
         return this.dl_applied;
     }
 
-    public String getwinnwr(){
+    public String getWinner(){
         return this.winner;
     }
-    public int getwin_by_runs(){
+    public int getWinByRuns(){
         return this.win_by_runs;
     }
 
-    public int getwin_by_wickets(){
+    public int getWinByWickets(){
         return this.win_by_wickets;
     }
 
-    public String getplayer_of_match(){
+    public String getPlayerOfMatch(){
         return this.player_of_match;
     }
-    public String getvenue(){
+    public String getVenue(){
         return this.venue;
     }
-    public String getumpire1(){
+    public String getUmpire1(){
         return this.umpire1;
     }
-    public String getumpire2(){
+    public String getUmpire2(){
         return this.umpire2;
     }
-    public String getumpire3(){
+    public String getUmpire3(){
         return this.umpire3;
     }
 }
